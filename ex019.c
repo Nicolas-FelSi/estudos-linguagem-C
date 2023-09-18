@@ -1,15 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
 
-int main()
-{
-    setlocale(LC_ALL, "PORTUGUESE");
-    int numero1 = 5, numero2 = 5;
-    
-    if (numero1 == numero2) {
-        printf("Os n˙meros s„o iguais");
-    } else {
-        printf("Os n˙meros n„o s„o iguais.");
-    }
+float calcularSalarioTotal(float salarioFixo, float totalDeVendas){
+	float calculoComissao = 0.040*totalDeVendas;
+    float salarioTotal = salarioFixo+calculoComissao;
+    return salarioTotal;
 }
+
+int main(){
+	setlocale(LC_ALL, "PORTUGUESE");
+    
+    float salarioFixo, totalDeVendas, salarioFinal;
+    
+    printf("Digite o sal√°rio fixo do funcion√°rio:\n");
+    scanf("%f", &salarioFixo);
+    
+    printf("\nDigite o total de vendas feitas pelo funcion√°rio:\n");
+    scanf("%f", &totalDeVendas);
+    
+    salarioFinal = calcularSalarioTotal(salarioFixo, totalDeVendas);
+    
+    printf("\nSal√°rio fixo: R$%.2f.\n", salarioFixo);
+    printf("Sal√°rio com comiss√£o: R$%.2f.\n", salarioFinal);
+}
+
+
